@@ -1,28 +1,22 @@
 sap.ui.define([
-	'sap/m/MessageBox',
-	'sap/ui/core/mvc/Controller',
+	"sap/ui/core/mvc/Controller",
 	"sap/m/MessageToast",
 	"sap/ui/model/json/JSONModel"
-], function (MessageBox, Controller, JSONModel, MessageToast) {
+], function (Controller, MessageToast, JSONModel) {
 	"use strict";
-	var LinkGroupController = Controller.extend("Workspace.ex1.webapp.controller.App", {
-		handleLinkPress: function (evt) {
-			var Places = {
+	return Controller.extend("Workspace.ex1.webapp.controller.App", {
+		onInit: function () {
+			// set data model on view
+			var oData = {
 				India: {
-					Delhi: "TajMahal",
-					Gujrat: "Ahmedabad"
-				},
-				USA: {
-					Washington: "University",
-					Columbus: "SL"
+					delhi: "Agra"
 				}
 			};
-			var oModel = new JSONModel(Places);
-			LinkGroupController.getView().setModel(oModel);
-			var Data = LinkGroupController.getView().getModel().getProperty("/India/Delhi");
-
-			MessageBox.alert(Data);
+			var oModel = new JSONModel(oData);
+			this.getView().setModel(oModel);
+		},
+		onShowHello: function () {
+			MessageToast.show("Hello World");
 		}
 	});
-	return LinkGroupController;
 });
