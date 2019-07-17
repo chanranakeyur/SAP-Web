@@ -4,19 +4,23 @@ sap.ui.define([
 	"sap/ui/model/json/JSONModel"
 ], function (Controller, MessageToast, JSONModel) {
 	"use strict";
+	var oData;
+	var oModel;
+	var sRecipient;
 	return Controller.extend("Workspace.ex1.webapp.controller.App", {
 		onInit: function () {
 			// set data model on view
-			var oData = {
+			oData = {
 				India: {
 					delhi: "Agra"
 				}
 			};
-			var oModel = new JSONModel(oData);
+			oModel = new JSONModel(oData);
 			this.getView().setModel(oModel);
+			sRecipient = this.getView().getModel().getProperty("/India/delhi");
 		},
 		onShowHello: function () {
-			MessageToast.show("Hello World");
+			MessageToast.show(sRecipient);
 		}
 	});
 });
