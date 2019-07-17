@@ -1,5 +1,4 @@
 <mvc:View controllerName="Workspace.ex1.webapp.controller.App" xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc">
-	<Link text="Delhi" press=".onLinkPress"/>
-	<Link text="Disabled link" enabled="false"/>
+	<Link text="Delhi" press=".onShowHello"/>
 	<Link text="Open SAP Homepage" target="_blank" href="http://www.sap.com"/>
 </mvc:View>
